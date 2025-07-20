@@ -787,7 +787,7 @@ const Footer = () => {
                             <div className="space-y-3">
                                 <div className="flex items-center text-gray-400 text-sm">
                                     <MessageSquare className="w-4 h-4 mr-2 text-primary" />
-                                    <span>+91 99930 42299</span>
+                                    <span>+91 99060 102527</span>
                                 </div>
                                 <div className="flex items-center text-gray-400 text-sm">
                                     <Mail className="w-4 h-4 mr-2 text-primary" />
