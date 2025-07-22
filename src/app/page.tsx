@@ -495,7 +495,7 @@ const TestimonialsSection = () => {
         "At Turn2Law, we're building more than just a legal-tech platform, we're building confidence for anyone facing legal uncertainty. Our goal is to make legal support as easy and approachable as ordering a cab or sending a message, and we're committed to designing that experience with empathy, clarity, and impact.",
       name: "Adhyayan Dubey",
       designation: "Co-Founder, Turn2Law",
-      src: "/images/Adhyayan.jpg",
+      src: "/images/Adhyayan.jpeg",
       'data-ai-hint': "man portrait",
       objectPosition: "object-center"
     },
@@ -510,11 +510,37 @@ const TestimonialsSection = () => {
     },
     {
       quote:
+        "At Turn2Law, I bring sharp legal insight and real-world exposure to the forefront, not just to interpret the law, but to empower people through it. My mission is to ensure every decision we make is legally sound, ethically driven, and built to last.",
+      name: "Pranav Sri Krishna B",
+      designation: "Chief Legal Officer, Turn2Law",
+      src: "/images/Pranav.jpeg",
+      'data-ai-hint': "man portrait",
+      objectPosition: "object-top"
+    },
+    {quote:
+        "I don’t just market a product, I champion a vision. At Turn2Law, I strive to translate legal innovation into meaningful stories, spark trust through every campaign, and lead conversations that bring law closer to the people. Strategy meets soul, and we lead with both.",
+      name: "Abhilipsa Sahoo",
+      designation: "Chief Marketing Officer, Turn2Law",
+      src: "/images/Abhilipsa.jpeg",
+      'data-ai-hint': "woman portrait",
+      objectPosition: "object-center"
+    },
+    {
+      quote:
         "Our focus is not just on building a powerful platform, it’s on delivering a seamless experience for every user who reaches out in need. From internal workflows to external support systems, I ensure our operations stay efficient, secure, and deeply human. Because when it comes to legal help, trust and reliability are everything.",
       name: "Aditi Prasanth",
       designation: "Chief Operations Officer, Turn2Law",
-      src: "/images/Aditi.jpg",
+      src: "/images/Aditi.jpeg",
       'data-ai-hint': "woman portrait",
+      objectPosition: "object-center"
+    },
+    {
+      quote:
+        "I don’t just push pixels, I build legal clarity, one elegant interface at a time. At Turn2Law, I turn ‘Huh?’ into ‘Aha!’ by designing experiences so intuitive, even your lawyer’s grandma could use them.",
+      name: "Rahul Marban",
+      designation: "Chief Design Officer, Turn2Law",
+      src: "/images/Rahul.jpg",
+      'data-ai-hint': "man portrait",
       objectPosition: "object-center"
     },
   ];
