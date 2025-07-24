@@ -41,7 +41,7 @@ const Header = () => {
 
   return (
     <header className="py-3 px-4 md:px-6 sticky top-0 z-50 bg-black/80 backdrop-blur-md shadow-lg border-b border-gray-800">
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container mx-auto flex flex-wrap justify-between items-center gap-4">
         <div className="flex items-center gap-3">
           <LogoIcon className="w-9 h-9 text-white" style={{ filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.6))' }} />
           <Image
@@ -125,7 +125,7 @@ const HeroSection = () => {
 
   return (
     <section ref={heroRef} className="pt-24 pb-32 md:pt-32 md:pb-40 px-4 md:px-8 bg-black">
-      <div className="container mx-auto grid md:grid-cols-2 items-center gap-16">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8 md:gap-16">
         <div className="text-center md:text-left hero-content">
           <h2 className="text-5xl md:text-6xl font-headline font-black mb-6 leading-tight text-white">
             Legal Help. <span className="animated-gradient-text">Simplified.</span>
@@ -148,7 +148,7 @@ const HeroSection = () => {
           <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-xl mx-auto md:mx-0">
             Turn2Law offers AI-powered legal guidance, connects you with expert attorneys, and simplifies legal document management. Get clear, affordable, and accessible legal solutions.
           </p>
-          <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+          <div className="flex flex-wrap gap-2 md:gap-3 justify-center md:justify-start">
             <TrustTag icon={<Verified className="w-4 h-4 mr-1.5" />} text="Secure Platform" />
             <TrustTag icon={<Sparkles className="w-4 h-4 mr-1.5" />} text="AI-Powered Insights" />
             <TrustTag icon={<Users className="w-4 h-4 mr-1.5" />} text="Vetted Lawyers" />
@@ -171,8 +171,12 @@ const HeroSection = () => {
 
 
 const MarqueeSection = () => {
+  // Consistent logo spacing for all devices
   const MarqueeItem = ({ children }: { children: React.ReactNode }) => (
-    <div className="flex items-center flex-shrink-0 w-full py-4 gap-20">
+    <div
+      className="flex flex-nowrap items-center flex-shrink-0 w-full py-4 gap-6 md:gap-10 overflow-x-hidden select-none"
+      style={{ userSelect: 'none', MozUserSelect: 'none', msUserSelect: 'none' }}
+    >
       {children}
     </div>
   );
@@ -190,13 +194,15 @@ const MarqueeSection = () => {
     height?: number; 
     className?: string; 
   }) => (
-    <div className="flex items-center justify-center min-w-[280px]">
+    <div className="flex items-center justify-center min-w-[200px] md:min-w-[240px] px-3 md:px-6 select-none">
       <Image 
         src={src} 
         alt={alt} 
         width={width} 
         height={height} 
-        className={`h-20 w-auto object-contain transition-all duration-300 hover:scale-105 ${className}`}
+        draggable={false}
+        className={`h-14 md:h-20 w-auto object-contain transition-all duration-300 hover:scale-105 select-none ${className}`}
+        style={{ background: 'transparent', userSelect: 'none' }}
       />
     </div>
   );
@@ -266,7 +272,7 @@ const WhyTurn2LawSection = () => {
 
     return (
         <section ref={whyRef} id="why-turn2law" className="py-20 md:py-32 px-4 md:px-8 bg-black">
-            <div className="container mx-auto text-center">
+            <div className="container mx-auto text-center px-2 sm:px-4">
                 <TypingAnimation
                     parts={[
                         { text: "Why " },
@@ -278,7 +284,7 @@ const WhyTurn2LawSection = () => {
                 <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-16">
                     Navigating legal issues can be complex and intimidating. Turn2Law makes it easier by providing clear, accessible, and affordable legal assistance. We combine smart technology with human expertise to guide you every step of the way.
                 </p>
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
                     {features.map((feature, index) => (
                         <BackgroundGradient
                             key={index}
@@ -412,7 +418,7 @@ const EarlyAccessPerksSection = () => {
               Join our waitlist and be among the first to experience Turn2Law. Early members get exclusive benefits that set you up for success.
             </p>
 
-            <div className="grid md:grid-cols-3 gap-6 w-full max-w-4xl">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 w-full max-w-4xl">
               {perks.map((perk, index) => (
                 <div key={index} className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-gray-700/50 rounded-xl p-6 backdrop-blur-sm hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group">
                   <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -457,7 +463,7 @@ const WaitlistSection = () => {
 const ForProfessionalsSection = () => {
     return (
         <section id="for-professionals" className="py-20 md:py-24 px-4 md:px-8 bg-gray-900/50">
-            <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div className="text-center md:text-left">
                      <TypingAnimation
                         parts={[
@@ -668,49 +674,7 @@ const AnimatedFooterInput = ({
   );
 };
 
-const NewsletterSection = () => {
-    const [email, setEmail] = useState("");
 
-    const handleSubscribe = () => {
-        if (email) {
-            console.log("Subscribing:", email);
-            setEmail("");
-        }
-    };
-
-    return (
-        <section className="bg-black py-16">
-            <div className="container mx-auto px-6">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                        Subscribe to our Newsletter
-                    </h2>
-                    <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Get exclusive legal tips, expert insights, and the latest updates delivered straight to your inbox!
-                    </p>
-
-                    <div className="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
-                        <div className="flex-1">
-                            <AnimatedFooterInput
-                                type="email"
-                                placeholder="Enter your Email Address"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                className="w-full"
-                            />
-                        </div>
-                        <button 
-                            onClick={handleSubscribe}
-                            className="px-8 py-3 bg-primary text-black font-semibold rounded-lg hover:bg-accent transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 whitespace-nowrap"
-                        >
-                            Subscribe
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-};
 
 const Footer = () => {
     const quickLinks = [
@@ -728,7 +692,7 @@ const Footer = () => {
     ];
 
     const connectLinks = [
-        { name: "Instagram", href: "https://www.instagram.com/turn2law/?utm_source=ig_web_button_share_sheet" },
+        { name: "Instagram", href: "https://www.instagram.com/turn2law" },
         { name: "LinkedIn", href: "https://www.linkedin.com/company/turn2law" },
         { name: "Twitter", href: "#twitter" },
         { name: "Facebook", href: "#facebook" },
@@ -736,10 +700,10 @@ const Footer = () => {
 
     return (
         <>
-            <NewsletterSection />
+            {/* NewsletterSection removed */}
             <footer className="bg-primary/5 border-t border-primary/10">
                 <div className="container mx-auto px-6 py-12">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
                         {/* Company Info */}
                         <div className="md:col-span-1">
                             <div className="flex items-center gap-3 mb-4">
